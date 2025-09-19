@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التسجيل | VKINI CLUP XD</title>
+  <style>
+    body {
+      font-family: "Cairo", sans-serif;
+      background: linear-gradient(135deg, #ff8c42, #ff5722);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    form {
+      background: rgba(0,0,0,0.3);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      text-align: right;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+    }
+    .question {
+      margin: 20px 0;
+      text-align: right;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #388e3c;
+    }
+  </style>
+</head>
+<body>
+  <h1>انضمام فريق XD</h1>
+  <p>املأ البيانات التالية وأجب عن الأسئلة</p>
+  
+  <form id="verifyForm">
+    <label>الاسم في اللعبة:</label>
+    <input type="text" id="gameName" required>
+
+    <label>العمر:</label>
+    <input type="number" id="age" required>
+
+    <label>الاسم في ديسكورد:</label>
+    <input type="text" id="discordName" required>
+
+    <!-- الأسئلة -->
+    <div class="question">
+      <p>1- ماذا تفعل إذا كان فريقك يواجه هجومًا ولا يوجد دفاع؟</p>
+      <select id="q1" required>
+        <option value="">اختر</option>
+        <option>أ. أترك المكان وأذهب للهجوم</option>
+        <option>ب. أبني دفاع سريع</option>
+        <option>ج. أنتظرهم ثم أقاتل</option>
+        <option>د. أهاجم اللاعب مباشرة</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>2- ما هو دورك المفضل في الفريق؟</p>
+      <select id="q2" required>
+        <option value="">اختر</option>
+        <option>أ. الهجوم</option>
+        <option>ب. الدفاع</option>
+        <option>ج. جمع الموارد والتخطيط</option>
+        <option>د. لا يهم</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>3- ماذا تفعل إذا بدأ العدو بناء جسر لجزيرتك؟</p>
+      <select id="q3" required>
+        <option value="">اختر</option>
+        <option>أ. أهاجم فورًا</option>
+        <option>ب. أبني جسر للهجوم</option>
+        <option>ج. أبني دفاع</option>
+        <option>د. أحفر الجسر من أسفل</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>4- ما هي أفضل طريقة لاستخدام Emeralds؟</p>
+      <select id="q4" required>
+        <option value="">اختر</option>
+        <option>أ. شراء أسلحة ودروع</option>
+        <option>ب. شراء تعاويذ</option>
+        <option>ج. شراء طعام</option>
+        <option>د. الاحتفاظ بها للنهائي</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <p>5- كيف تتعامل مع 1v1؟</p>
+      <select id="q5" required>
+        <option value="">اختر</option>
+        <option>أ. القوس والسهم</option>
+        <option>ب. السيف مباشرة</option>
+        <option>ج. تكتيك الهروب والعودة</option>
+        <option>د. استخدام أدوات خاصة</option>
+      </select>
+    </div>
+
+    <button type="submit">إرسال الطلب</button>
+  </form>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDJke7t9YM-iLmuM6wAyycjbpvsjS5oajA",
+      authDomain: "lb4legendsauth.firebaseapp.com",
+      projectId: "lb4legendsauth",
+      storageBucket: "lb4legendsauth.firebasestorage.app",
+      messagingSenderId: "95326441450",
+      appId: "1:95326441450:web:925968b79344bb43e0ac93",
+      measurementId: "G-58PYKTVGXK"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    document.getElementById("verifyForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      
+      const data = {
+        gameName: document.getElementById("gameName").value,
+        age: document.getElementById("age").value,
+        discordName: document.getElementById("discordName").value,
+        q1: document.getElementById("q1").value,
+        q2: document.getElementById("q2").value,
+        q3: document.getElementById("q3").value,
+        q4: document.getElementById("q4").value,
+        q5: document.getElementById("q5").value,
+        timestamp: new Date()
+      };
+
+      try {
+        await addDoc(collection(db, "verify_requests"), data);
+        alert("تم إرسال طلبك بنجاح ✅");
+        document.getElementById("verifyForm").reset();
+      } catch (error) {
+        alert("حدث خطأ ❌: " + error.message);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>𝗩𝗞𝗜𝗡𝗜 𝗖𝗟𝗨𝗣 𝗫𝗗</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1: #ff7a18;
+    --bg2: #ffb199;
+    --glass: rgba(255,255,255,0.05);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(180deg,var(--bg1) 0%, #ff9a3c 45%, var(--bg2) 100%);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px;
+    color:#fff;
+  }
+  .wrap{
+    width:100%;
+    max-width:980px;
+    display:grid;
+    grid-template-columns: 1fr 420px;
+    gap:28px;
+    align-items:center;
+  }
+  @media (max-width:880px){
+    .wrap{grid-template-columns:1fr}
+  }
+  .hero{
+    background: var(--glass);
+    border-radius:18px;
+    padding:34px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.18);
+    backdrop-filter: blur(6px);
+    text-align:center;
+  }
+  .hero img.logo{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    margin-bottom:15px;
+  }
+  h1{margin:0 0 12px;font-size:2rem;color:#fff}
+  p{margin:0 0 12px}
+  .card{
+    background: rgba(0,0,0,0.28);
+    border-radius:18px;
+    padding:22px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    text-decoration:none;
+    margin:10px 0;
+    padding:12px 14px;
+    border-radius:12px;
+    font-weight:700;
+    transition:0.2s;
+    color:#fff;
+    gap:8px;
+  }
+  .btn:hover{transform:translateY(-3px)}
+  .btn-primary{background:#0b0b0b}
+  .btn-discord{background:#111}
+  .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.2)}
+  .btn-youtube{background:#ff0000}
+  .btn-tiktok{background:#000}
+  .note{margin-top:14px;font-size:0.9rem;color:#eee}
+  .link-colored a{color:lime;font-weight:bold;text-decoration:none}
+  .link-colored a:hover{color:#00aaff}
+  .footer{margin-top:18px;font-size:0.9rem;color:#ccc}
+  .socials{
+    margin-top:15px;
+  }
+  .socials .btn{margin:6px 0;}
+  .btn img{
+    width:20px;
+    height:20px;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <img src="logo.jpg" alt="Logo" class="logo">
+      <h1>𝗩𝗞𝗜𝗡𝗜 𝗖𝗟𝗨𝗣 𝗫𝗗</h1>
+      <p>مرحبا بك في موقع الفريق، هنا ستجد روابط مهمة وطرق الانضمام.</p>
+      <p class="link-colored">
+        إذا تريد الانضمام إلى سيرفر سيرفايفل رائع اضغط على 
+        <a href="https://leomh31.github.io/LB4_Legends/" target="_blank">موقع</a>
+      </p>
+    </section>
+
+    <aside class="card">
+      <div>
+        <a class="btn btn-primary" href="verify.html">طلب رتبة XD Team</a>
+        <a class="btn btn-primary" href="xdteam.html">👥 أعضاء XD Team</a>
+        <a class="btn btn-discord" href="https://discord.gg/YY2HcxJ7" target="_blank">
+          <img src="discord.png" alt="Discord"> Discord
+        </a>
+        <a class="btn btn-ghost" href="rules.html">قوانين</a>
+      </div>
+
+      <div class="socials">
+        <a class="btn btn-youtube" href="https://www.youtube.com/@VKINICLUPXD" target="_blank">
+          <img src="youtube.png" alt="YouTube"> YouTube
+        </a>
+        <a class="btn btn-tiktok" href="https://www.tiktok.com/@vkini_clup" target="_blank">
+          <img src="tiktok.png" alt="TikTok"> TikTok
+        </a>
+      </div>
+
+      <div class="note">انقر على طلب رتبة XD Team واكتب كل المعلومات بشكل المطلوب.</div>
+      <div class="footer">هذا الموقع من صنع المبرمج : <strong>Leo Mh</strong></div>
+    </aside>
+  </div>
+</body>
+</html>
