@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التسجيل | 𝗩𝗞𝗜𝗡𝗜 𝗖𝗟𝗨𝗣 𝗫𝗗</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark-bg-start: #0a0a0a;
+      --dark-bg-end: #1a1a1a;
+      --card-bg: rgba(25, 25, 25, 0.7); /* Darker glass effect */
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text-color: #e0e0e0;
+      --accent-light: #9c27b0; /* Purple accent */
+      --input-bg: rgba(255, 255, 255, 0.08);
+      --input-border-focus: var(--accent-light);
+      --button-submit-bg: linear-gradient(45deg, #4caf50, #388e3c); /* Green for submit */
+      --button-submit-hover: linear-gradient(45deg, #388e3c, #4caf50);
+      --shadow-dark: rgba(0, 0, 0, 0.5);
+    }
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+    body {
+      font-family: 'Cairo', 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, var(--dark-bg-start) 0%, var(--dark-bg-end) 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column; /* Changed to column for vertical alignment */
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .form-container {
+      width: 100%;
+      max-width: 700px; /* Increased max-width for better layout */
+      background: var(--card-bg);
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 8px 32px 0 var(--shadow-dark);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 40px; /* Increased padding */
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      margin: 20px 0; /* Add some margin top/bottom */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px 0 var(--shadow-dark);
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 25px;
+      border: 3px solid var(--accent-light);
+      box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.05);
+      animation: pulse 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.05); }
+      to { box-shadow: 0 0 0 9px rgba(255, 255, 255, 0.1); }
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      margin: 0 0 10px;
+      color: #fff;
+      text-shadow: 0px 3px 8px rgba(0,0,0,0.4);
+      letter-spacing: 0.5px;
+      font-weight: 700;
+    }
+    p {
+      font-size: 1.05em;
+      margin-bottom: 30px;
+      color: var(--text-color);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px; /* Spacing between form groups */
+    }
+    .form-group {
+      text-align: right; /* Align labels to the right */
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1em;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 12px 15px; /* Increased padding */
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      background-color: var(--input-bg);
+      color: var(--text-color);
+      font-family: 'Cairo', sans-serif;
+      font-size: 1em;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      -webkit-appearance: none; /* Remove default select styles */
+      -moz-appearance: none;
+      appearance: none;
+      background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2212%22%20height%3D%228%22%20viewBox%3D%220%200%2012%208%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1%201.5L6%206.5L11%201.5%22%20stroke%3D%22%23e0e0e0%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E'); /* Custom arrow for select */
+      background-repeat: no-repeat;
+      background-position: left 15px center; /* Position arrow on the left for RTL */
+      padding-left: 40px; /* Make space for the arrow */
+    }
+    input:focus,
+    select:focus {
+      border-color: var(--input-border-focus);
+      box-shadow: 0 0 0 3px rgba(156, 39, 176, 0.3); /* Accent glow */
+      outline: none;
+    }
+    select option {
+      background-color: var(--dark-bg-end);
+      color: var(--text-color);
+    }
+
+    .question-section {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    .question p {
+      font-size: 1em;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #fff;
+      text-align: right;
+    }
+
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 15px 25px;
+      margin-top: 30px;
+      background: var(--button-submit-bg);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1.1em;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+    }
+    button[type="submit"]:hover {
+      background: var(--button-submit-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(76, 175, 80, 0.5);
+    }
+    button[type="submit"]:active {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <img src="logo.png" alt="VKINI CLUP XD Logo" class="logo">
+    <h1>انضمام فريق XD</h1>
+    <p>املأ البيانات التالية بعناية وأجب عن الأسئلة للمساعدة في تقييم طلبك.</p>
+    
+    <form id="verifyForm">
+      <div class="form-group">
+        <label for="gameName">الاسم في اللعبة:</label>
+        <input type="text" id="gameName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="age">العمر:</label>
+        <input type="number" id="age" required min="10" max="99">
+      </div>
+
+      <div class="form-group">
+        <label for="discordName">الاسم في ديسكورد:</label>
+        <input type="text" id="discordName" required>
+      </div>
+
+      <!-- الأسئلة -->
+      <div class="question-section">
+        <div class="question">
+          <p>1- ماذا تفعل إذا كان فريقك يواجه هجومًا ولا يوجد دفاع؟</p>
+          <select id="q1" required>
+            <option value="">اختر إجابتك</option>
+            <option value="أ">أ. أترك المكان وأذهب للهجوم</option>
+            <option value="ب">ب. أبني دفاع سريع</option>
+            <option value="ج">ج. أنتظرهم ثم أقاتل</option>
+            <option value="د">د. أهاجم اللاعب مباشرة</option>
+          </select>
+        </div>
+
+        <div class="question">
+          <p>2- ما هو دورك المفضل في الفريق؟</p>
+          <select id="q2" required>
+            <option value="">اختر إجابتك</option>
+            <option value="أ">أ. الهجوم</option>
+            <option value="ب">ب. الدفاع</option>
+            <option value="ج">ج. جمع الموارد والتخطيط</option>
+            <option value="د">د. لا يهم</option>
+          </select>
+        </div>
+
+        <div class="question">
+          <p>3- ماذا تفعل إذا بدأ العدو بناء جسر لجزيرتك؟</p>
+          <select id="q3" required>
+            <option value="">اختر إجابتك</option>
+            <option value="أ">أ. أهاجم فورًا</option>
+            <option value="ب">ب. أبني جسر للهجوم</option>
+            <option value="ج">ج. أبني دفاع</option>
+            <option value="د">د. أحفر الجسر من أسفل</option>
+          </select>
+        </div>
+
+        <div class="question">
+          <p>4- ما هي أفضل طريقة لاستخدام Emeralds؟</p>
+          <select id="q4" required>
+            <option value="">اختر إجابتك</option>
+            <option value="أ">أ. شراء أسلحة ودروع</option>
+            <option value="ب">ب. شراء تعاويذ</option>
+            <option value="ج">ج. شراء طعام</option>
+            <option value="د">د. الاحتفاظ بها للنهائي</option>
+          </select>
+        </div>
+
+        <div class="question">
+          <p>5- كيف تتعامل مع 1v1؟</p>
+          <select id="q5" required>
+            <option value="">اختر إجابتك</option>
+            <option value="أ">أ. القوس والسهم</option>
+            <option value="ب">ب. السيف مباشرة</option>
+            <option value="ج">ج. تكتيك الهروب والعودة</option>
+            <option value="د">د. استخدام أدوات خاصة</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit">إرسال الطلب</button>
+    </form>
+  </div>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDJke7t9YM-iLmuM6wAyycjbpvsjS5oajA",
+      authDomain: "lb4legendsauth.firebaseapp.com",
+      projectId: "lb4legendsauth",
+      storageBucket: "lb4legendsauth.firebasestorage.app",
+      messagingSenderId: "95326441450",
+      appId: "1:95326441450:web:925968b79344bb43e0ac93",
+      measurementId: "G-58PYKTVGXK"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    document.getElementById("verifyForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      
+      const data = {
+        gameName: document.getElementById("gameName").value,
+        age: parseInt(document.getElementById("age").value), // Ensure age is a number
+        discordName: document.getElementById("discordName").value,
+        q1: document.getElementById("q1").value,
+        q2: document.getElementById("q2").value,
+        q3: document.getElementById("q3").value,
+        q4: document.getElementById("q4").value,
+        q5: document.getElementById("q5").value,
+        timestamp: new Date()
+      };
+
+      try {
+        await addDoc(collection(db, "verify_requests"), data);
+        alert("تم إرسال طلبك بنجاح ✅");
+        document.getElementById("verifyForm").reset();
+      } catch (error) {
+        alert("حدث خطأ ❌: " + error.message);
+      }
+    });
+  </script>
+</body>
+</html>

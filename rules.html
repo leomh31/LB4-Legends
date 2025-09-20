@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>قوانين - 𝗩𝗞𝗜𝗡𝗜 𝗖𝗟𝗨𝗣 𝗫𝗗</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body{
+    margin:0;
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(to top, #1a1a2e, #0f0f1d); /* Dark, luxurious gradient */
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:30px;
+    color:#e0e0e0; /* Lighter text for dark background */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    position: relative;
+  }
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch" result="noise"></feTurbulence><feBlend in="SourceGraphic" in2="noise" mode="multiply"></feBlend></filter><rect width="100" height="100" filter="url(%23noiseFilter)"></rect></svg>'); /* Subtle noise effect */
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: -1;
+  }
+  h1{
+    margin-bottom:35px;
+    font-size:2.8rem; /* Larger title */
+    color:#e0e0e0;
+    text-align:center;
+    letter-spacing:1.5px;
+    text-shadow: 0 0 15px rgba(100, 255, 218, 0.4), 0 0 30px rgba(100, 255, 218, 0.2); /* Neon glow effect */
+  }
+  .container{
+    background: rgba(28, 28, 42, 0.9); /* Darker, slightly transparent background */
+    border-radius:20px;
+    padding:25px;
+    margin:20px 0;
+    width:100%;
+    max-width:650px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5), inset 0 0 15px rgba(70, 70, 100, 0.3); /* Deeper shadow with inner glow */
+    border: 1px solid rgba(70, 70, 100, 0.5); /* Subtle border */
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+  }
+  .container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(100, 255, 218, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+  }
+  .container:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.7), inset 0 0 20px rgba(100, 255, 218, 0.5);
+    border-color: rgba(100, 255, 218, 0.7);
+  }
+  .container:hover::before {
+    opacity: 0.15;
+  }
+  .container h1{ /* Specific styling for the h1 inside container if needed */
+    margin-top:0;
+    margin-bottom:20px;
+    font-size:2.2rem;
+    color:#64ffda; /* Neon accent color */
+    border-bottom:2px solid rgba(100, 255, 218, 0.4); /* Stronger accent border */
+    padding-bottom:10px;
+    text-align:center;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.6);
+  }
+  ul{list-style:none;padding:0;margin:0}
+  li{
+    background:rgba(70, 70, 100, 0.15); /* Slightly darker member background */
+    margin:12px 0;
+    padding:14px;
+    border-radius:15px;
+    font-weight:600;
+    font-size:1.25rem; /* Larger list items */
+    color:#e0e0e0;
+    text-shadow: 0 0 8px rgba(255,255,255,0.2);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(70, 70, 100, 0.3);
+  }
+  li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+    transition: left 0.5s ease-in-out;
+  }
+  li:hover{
+    background:rgba(100, 255, 218, 0.1); /* Hover accent */
+    transform:translateX(5px); /* Subtle slide effect */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5), 0 0 10px rgba(100, 255, 218, 0.4);
+    border-color: rgba(100, 255, 218, 0.5);
+  }
+  li:hover::before {
+    left: 100%;
+  }
+
+  .back{
+    display:block;
+    margin-top:22px;
+    text-align:center;
+    text-decoration:none;
+    background:#64ffda; /* Neon accent for button */
+    padding:12px 20px;
+    border-radius:12px;
+    color:#1a1a2e; /* Dark text for contrast */
+    font-weight:bold;
+    transition:0.2s;
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.7); /* Glow effect for button */
+  }
+  .back:hover{
+    background:#4ee4d0;
+    transform:translateY(-2px);
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.9);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+    .container {
+      padding: 20px;
+    }
+    .container h1 {
+      font-size: 1.8rem;
+    }
+    li {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.8rem;
+    }
+    .container {
+      padding: 15px;
+      margin: 15px 0;
+    }
+    .container h1 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    li {
+      font-size: 1rem;
+      padding: 10px;
+    }
+    .back {
+      padding: 10px 15px;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <h1>قوانين 𝗩𝗞𝗜𝗡𝗜 𝗖𝗟𝗨𝗣 𝗫𝗗</h1>
+  <div class="container">
+    <h1>قوانين الانضمام</h1>
+    <ul>
+      <li>🚫 ممنوع دخول لاعبين الهاتف.</li>
+      <li>⚡ يجب أن تكون سريع ومحترف في حماية السرير.</li>
+      <li>📜 عليك اتباع تعليمات الفريق بدون نقاش.</li>
+      <li>🛡️ يجب أن تحمي أصدقائك وتدافع عن سريرك.</li>
+    </ul>
+    <a class="back" href="index.html">🔙 العودة للصفحة الرئيسية</a>
+  </div>
+</body>
+</html>

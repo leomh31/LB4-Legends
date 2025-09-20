@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>أعضاء XD Team</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body{
+    margin:0;
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(to top, #1a1a2e, #0f0f1d); /* Dark, luxurious gradient */
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:30px;
+    color:#e0e0e0; /* Lighter text for dark background */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    position: relative;
+  }
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch" result="noise"></feTurbulence><feBlend in="SourceGraphic" in2="noise" mode="multiply"></feBlend></filter><rect width="100" height="100" filter="url(%23noiseFilter)"></rect></svg>'); /* Subtle noise effect */
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: -1;
+  }
+  h1{
+    margin-bottom:35px;
+    font-size:2.8rem; /* Larger title */
+    color:#e0e0e0;
+    text-align:center;
+    letter-spacing:1.5px;
+    text-shadow: 0 0 15px rgba(100, 255, 218, 0.4), 0 0 30px rgba(100, 255, 218, 0.2); /* Neon glow effect */
+  }
+  .role{
+    background: rgba(28, 28, 42, 0.9); /* Darker, slightly transparent background */
+    border-radius:20px;
+    padding:25px;
+    margin:20px 0;
+    width:100%;
+    max-width:650px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5), inset 0 0 15px rgba(70, 70, 100, 0.3); /* Deeper shadow with inner glow */
+    border: 1px solid rgba(70, 70, 100, 0.5); /* Subtle border */
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+  }
+  .role::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(100, 255, 218, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+  }
+  .role:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.7), inset 0 0 20px rgba(100, 255, 218, 0.5);
+    border-color: rgba(100, 255, 218, 0.7);
+  }
+  .role:hover::before {
+    opacity: 0.15;
+  }
+  .role h2{
+    margin-top:0;
+    margin-bottom:20px;
+    font-size:1.6rem; /* Larger role titles */
+    color:#64ffda; /* Neon accent color */
+    border-bottom:2px solid rgba(100, 255, 218, 0.4); /* Stronger accent border */
+    padding-bottom:10px;
+    text-align:right;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.6);
+  }
+  .member{
+    display:flex;
+    align-items:center;
+    margin:12px 0;
+    gap:16px;
+    background:rgba(70, 70, 100, 0.15); /* Slightly darker member background */
+    padding:12px;
+    border-radius:15px;
+    transition: all 0.3s ease-in-out; /* Smooth transitions */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(70, 70, 100, 0.3);
+  }
+  .member::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+    transition: left 0.5s ease-in-out;
+  }
+  .member:hover{
+    background:rgba(100, 255, 218, 0.1); /* Hover accent */
+    transform:translateX(5px); /* Subtle slide effect */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5), 0 0 10px rgba(100, 255, 218, 0.4);
+    border-color: rgba(100, 255, 218, 0.5);
+  }
+  .member:hover::before {
+    left: 100%;
+  }
+  .member img{
+    width:60px; /* Larger avatars */
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #64ffda; /* Accent border for avatars */
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.6), 0 0 20px rgba(100, 255, 218, 0.3); /* Avatar glow */
+    transition: all 0.3s ease-in-out;
+  }
+  .member:hover img {
+    transform: scale(1.05);
+    border-color: #ffffff; /* White border on hover */
+  }
+  .member span{
+    font-size:1.25rem; /* Larger member names */
+    font-weight:700;
+    color:#e0e0e0;
+    text-shadow: 0 0 8px rgba(255,255,255,0.2);
+  }
+  .footer{
+    margin-top:40px;
+    font-size:1rem;
+    color:#a0a0a0;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    letter-spacing: 0.8px;
+  }
+  .footer strong {
+    color: #64ffda;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.7);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+    .role {
+      padding: 20px;
+    }
+    .role h2 {
+      font-size: 1.4rem;
+    }
+    .member {
+      gap: 12px;
+      padding: 10px;
+    }
+    .member img {
+      width: 50px;
+      height: 50px;
+    }
+    .member span {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.8rem;
+    }
+    .role {
+      padding: 15px;
+      margin: 15px 0;
+    }
+    .role h2 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+    .member {
+      flex-direction: row; /* Keep it row for better readability */
+      gap: 10px;
+      padding: 8px;
+    }
+    .member img {
+      width: 45px;
+      height: 45px;
+    }
+    .member span {
+      font-size: 1rem;
+    }
+    .footer {
+      font-size: 0.85rem;
+      margin-top: 30px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <h1>👥 أعضاء XD Team</h1>
+
+  <section class="role">
+    <h2>👑 XD Owner</h2>
+    <div class="member">
+      <img src="ZOMBIE_XD.png" alt="ZOMBIE_XD">
+      <span>ZOMBIE_XD</span>
+    </div>
+  </section>
+
+  <section class="role">
+    <h2>💻 XD Dev</h2>
+    <div class="member">
+      <img src="LEO MH.png" alt="LEO MH">
+      <span>LEO MH</span>
+    </div>
+  </section>
+
+  <section class="role">
+    <h2>⚡ XD Team</h2>
+    <div class="member">
+      <img src="jamaica_xd.png" alt="jamaica_xd">
+      <span>jamaica_xd</span>
+    </div>
+    <div class="member">
+      <img src="seif_xd.png" alt="seif_xd">
+      <span>seif_xd</span>
+    </div>
+    <div class="member">
+      <img src="younes_xd.png" alt="younes_xd">
+      <span>younes_xd</span>
+    </div>
+    <div class="member">
+      <img src="zirox_xd.png" alt="zirox_xd">
+      <span>zirox_xd</span>
+    </div>
+  </section>
+
+  <div class="footer">هذا الموقع من صنع المبرمج : <strong>Leo Mh</strong></div>
+
+</body>
+</html>
